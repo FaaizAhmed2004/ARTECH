@@ -7,7 +7,7 @@ A professional e-commerce website built with Next.js 14, TypeScript, and Tailwin
 - **Company**: Arktech5 LLC
 - **Owner**: Mayyed Hasan
 - **Address**: 2 Connor Lane, Bellingham, Massachusetts, 02019
-- **Email**: Arktech329@gmail.com
+- **Email**: support@ark5tech.com
 - **Phone**: +1 (781) 241-5399
 - **Business Type**: LLC registered e-commerce (Walmart Marketplace seller)
 

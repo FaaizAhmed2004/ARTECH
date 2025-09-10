@@ -12,7 +12,7 @@ export const BUSINESS_INFO: BusinessInfo = {
     full: '2 Connor Lane, Bellingham, Massachusetts, 02019'
   },
   contact: {
-    email: 'Arktech329@gmail.com',
+    email: 'support@ark5tech.com',
     phone: '+1 (781) 241-5399'
   },
   businessType: 'LLC registered e-commerce (Walmart Marketplace seller)'

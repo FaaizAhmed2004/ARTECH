@@ -37,7 +37,7 @@ This document outlines the requirements for building a complete Next.js 14 e-com
 1. WHEN a user visits the Contact Us page THEN the system SHALL display a contact form with name, email, and message fields
 2. WHEN on the Contact page THEN the system SHALL show the business address: 2 Connor Lane, Bellingham, Massachusetts, 02019
 3. WHEN viewing contact information THEN the system SHALL display phone number: +1 (781) 241-5399
-4. WHEN on the Contact page THEN the system SHALL show email: Arktech329@gmail.com
+4. WHEN on the Contact page THEN the system SHALL show email: support@ark5tech.com
 5. WHEN a user fills out the contact form THEN the system SHALL provide appropriate frontend validation
 
 ### Requirement 4

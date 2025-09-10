@@ -65,7 +65,7 @@ export default function RootLayout({
       "@type": "ContactPoint",
       "telephone": "+1-781-241-5399",
       "contactType": "customer service",
-      "email": "Arktech329@gmail.com"
+      "email": "support@ark5tech.com"
     },
     "sameAs": [
       "https://www.walmart.com/seller/arktech5"
