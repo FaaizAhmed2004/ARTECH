@@ -1,4 +1,6 @@
-import React from 'react';
+'use client';
+
+import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
@@ -6,8 +8,24 @@ import { ProductCardProps } from '@/lib/types';
 import { formatPrice } from '@/lib/utils';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/common/Card';
 import Button from '@/components/common/Button';
+import { useCart } from '@/lib/cart-context';
 
 const ProductCard: React.FC<ProductCardProps> = ({ product, className }) => {
+  const { addToCart } = useCart();
+  const [isAdding, setIsAdding] = useState(false);
+
+  const handleAddToCart = async () => {
+    if (!product.inStock) return;
+    
+    setIsAdding(true);
+    addToCart(product, 1);
+    
+    // Brief loading state for better UX
+    setTimeout(() => {
+      setIsAdding(false);
+    }, 500);
+  };
+
   return (
     <Card 
       className={cn('group hover:shadow-lg transition-all duration-300 hover:-translate-y-1', className)}
@@ -57,8 +75,8 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, className }) => {
           {product.description}
         </p>
 
-        {/* Price and Action */}
-        <div className="flex items-center justify-between">
+        {/* Price and Actions */}
+        <div className="flex items-center justify-between mb-3">
           <div className="flex flex-col">
             <span className="text-2xl font-bold text-primary-600">
               {formatPrice(product.price)}
@@ -69,20 +87,42 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, className }) => {
               </span>
             )}
           </div>
+        </div>
+
+        {/* Action Buttons */}
+        <div className="flex gap-2">
+          <Button 
+            onClick={handleAddToCart}
+            size="sm" 
+            variant="primary"
+            disabled={!product.inStock || isAdding}
+            className={cn(
+              'flex-1 transition-all duration-200',
+              isAdding && 'bg-success-600 hover:bg-success-700'
+            )}
+          >
+            {isAdding ? (
+              <>
+                <span className="mr-1">✓</span>
+                Added
+              </>
+            ) : product.inStock ? (
+              <>
+                <span className="mr-1">🛒</span>
+                Add to Cart
+              </>
+            ) : (
+              'Out of Stock'
+            )}
+          </Button>
           
           <Link href={`/store/product/${product.id}`}>
             <Button 
               size="sm" 
               variant="outline"
-              disabled={!product.inStock}
-              className={cn(
-                'transition-all duration-200',
-                product.inStock 
-                  ? 'hover:bg-primary-600 hover:text-white' 
-                  : 'opacity-50 cursor-not-allowed'
-              )}
+              className="transition-all duration-200 hover:bg-primary-600 hover:text-white"
             >
-              {product.inStock ? 'View Details' : 'Unavailable'}
+              View
             </Button>
           </Link>
         </div>

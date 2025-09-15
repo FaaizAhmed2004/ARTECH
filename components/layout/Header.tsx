@@ -7,10 +7,26 @@ import { cn } from '@/lib/utils';
 import { NAVIGATION_ITEMS, BUSINESS_INFO } from '@/lib/constants';
 import { HeaderProps, NavigationItem } from '@/lib/types';
 import Container from '@/components/common/Container';
+import { useCart } from '@/lib/cart-context';
 
 const Header: React.FC<HeaderProps> = ({ className }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isCartOpen, setIsCartOpen] = useState(false);
   const pathname = usePathname();
+  const { items, getTotalItems, getTotalPrice, removeFromCart, updateQuantity } = useCart();
+
+  // Close cart when clicking outside
+  React.useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as Element;
+      if (isCartOpen && !target.closest('.cart-dropdown') && !target.closest('.cart-button')) {
+        setIsCartOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [isCartOpen]);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -114,20 +130,105 @@ const Header: React.FC<HeaderProps> = ({ className }) => {
             {NAVIGATION_ITEMS.map((item) => renderNavigationItem(item))}
           </nav>
 
-          {/* Contact Info */}
-          <div className="hidden lg:flex items-center space-x-4 text-sm text-secondary-600">
-            <a 
-              href={`tel:${BUSINESS_INFO.contact.phone}`}
-              className="hover:text-primary-600 transition-colors"
-            >
-              {BUSINESS_INFO.contact.phone}
-            </a>
-            <a 
-              href={`mailto:${BUSINESS_INFO.contact.email}`}
-              className="hover:text-primary-600 transition-colors"
-            >
-              {BUSINESS_INFO.contact.email}
-            </a>
+          {/* Right Side - Cart and Contact */}
+          <div className="flex items-center space-x-4">
+            {/* Cart Icon */}
+            <div className="relative">
+              <button
+                onClick={() => setIsCartOpen(!isCartOpen)}
+                className="cart-button relative p-2 text-secondary-700 hover:text-primary-600 transition-colors"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-1.5 6M7 13l-1.5 6m0 0h9m-9 0V19a2 2 0 002 2h7a2 2 0 002-2v-4" />
+                </svg>
+                {getTotalItems() > 0 && (
+                  <span className="absolute -top-1 -right-1 bg-primary-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                    {getTotalItems()}
+                  </span>
+                )}
+              </button>
+
+              {/* Cart Dropdown */}
+              {isCartOpen && (
+                <div className="cart-dropdown absolute right-0 mt-2 w-80 bg-white rounded-lg shadow-lg border border-secondary-200 z-50">
+                  <div className="p-4">
+                    <h3 className="text-lg font-semibold mb-3">Shopping Cart</h3>
+                    {items.length === 0 ? (
+                      <p className="text-secondary-600 text-center py-4">Your cart is empty</p>
+                    ) : (
+                      <>
+                        <div className="space-y-3 max-h-60 overflow-y-auto">
+                          {items.map((item) => (
+                            <div key={item.id} className="flex items-center space-x-3 p-2 border-b border-secondary-100">
+                              <div className="w-12 h-12 bg-secondary-100 rounded flex items-center justify-center text-lg">
+                                📦
+                              </div>
+                              <div className="flex-1">
+                                <h4 className="text-sm font-medium">{item.product.name}</h4>
+                                <p className="text-xs text-secondary-600">${item.product.price.toFixed(2)} each</p>
+                                <div className="flex items-center space-x-2 mt-1">
+                                  <button
+                                    onClick={() => updateQuantity(item.id, item.quantity - 1)}
+                                    className="w-6 h-6 rounded-full bg-secondary-200 flex items-center justify-center text-xs hover:bg-secondary-300"
+                                  >
+                                    -
+                                  </button>
+                                  <span className="text-sm">{item.quantity}</span>
+                                  <button
+                                    onClick={() => updateQuantity(item.id, item.quantity + 1)}
+                                    className="w-6 h-6 rounded-full bg-secondary-200 flex items-center justify-center text-xs hover:bg-secondary-300"
+                                  >
+                                    +
+                                  </button>
+                                </div>
+                              </div>
+                              <div className="text-right">
+                                <p className="text-sm font-medium">${(item.product.price * item.quantity).toFixed(2)}</p>
+                                <button
+                                  onClick={() => removeFromCart(item.id)}
+                                  className="text-xs text-red-600 hover:text-red-800"
+                                >
+                                  Remove
+                                </button>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                        <div className="border-t border-secondary-200 pt-3 mt-3">
+                          <div className="flex justify-between items-center mb-3">
+                            <span className="font-semibold">Total: ${getTotalPrice().toFixed(2)}</span>
+                          </div>
+                          <Link href="/cart">
+                            <button 
+                              className="w-full bg-primary-600 text-white py-2 rounded-md hover:bg-primary-700 transition-colors"
+                              onClick={() => setIsCartOpen(false)}
+                            >
+                              View Cart
+                            </button>
+                          </Link>
+                        </div>
+                      </>
+                    )}
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* Contact Info */}
+            <div className="hidden lg:flex items-center space-x-4 text-sm text-secondary-600">
+              <a 
+                href={`tel:${BUSINESS_INFO.contact.phone}`}
+                className="hover:text-primary-600 transition-colors"
+              >
+                {BUSINESS_INFO.contact.phone}
+              </a>
+              <a 
+                href={`mailto:${BUSINESS_INFO.contact.email}`}
+                className="hover:text-primary-600 transition-colors"
+              >
+                {BUSINESS_INFO.contact.email}
+              </a>
+            </div>
           </div>
 
           {/* Mobile Menu Button */}

@@ -4,6 +4,7 @@ import ProductCard from '@/components/ui/ProductCard';
 import Container from '@/components/common/Container';
 import Button from '@/components/common/Button';
 import { Product } from '@/lib/types';
+import { SAMPLE_PRODUCTS } from '@/lib/constants';
 
 export const metadata: Metadata = {
   title: 'Store - Arktech5 | Quality Products & Professional Service',
@@ -11,97 +12,13 @@ export const metadata: Metadata = {
   keywords: ['online store', 'electronics', 'accessories', 'quality products', 'Arktech5 store', 'e-commerce'],
 };
 
-// Dummy product data for demonstration
-const dummyProducts: Product[] = [
-  {
-    id: '1',
-    name: 'Premium Wireless Headphones',
-    description: 'High-quality wireless headphones with active noise cancellation, 30-hour battery life, and premium sound quality.',
-    price: 199.99,
-    category: 'Electronics',
-    image: '/images/wirlessheadphones.jpg',
-    inStock: true,
-    featured: true
-  },
-  {
-    id: '2',
-    name: 'Smart Home Security Camera',
-    description: '1080p HD security camera with night vision, motion detection, and smartphone app integration.',
-    price: 149.99,
-    category: 'Security',
-    image: '/images/security.jpg',
-    inStock: true,
-    featured: true
-  },
-  {
-    id: '3',
-    name: 'Portable Bluetooth Speaker',
-    description: 'Waterproof portable speaker with 12-hour battery life, deep bass, and crystal-clear sound.',
-    price: 79.99,
-    category: 'Audio',
-    image: '/images/speaker.jpg',
-    inStock: true,
-    featured: false
-  },
-  {
-    id: '4',
-    name: 'USB-C Fast Charging Cable',
-    description: 'Durable 6ft USB-C cable with fast charging support and data transfer capabilities.',
-    price: 24.99,
-    category: 'Accessories',
-    image: '/images/cable.jpg',
-    inStock: true,
-    featured: false
-  },
-  {
-    id: '5',
-    name: 'Wireless Power Bank',
-    description: 'High-capacity power bank with wireless charging and multiple USB ports for all your devices.',
-    price: 39.99,
-    category: 'Accessories',
-    image: '/images/wirelessbank.jpg',
-    inStock: true,
-    featured: false
-  },
-  {
-    id: '6',
-    name: 'Smart Fitness Tracker',
-    description: 'Advanced fitness tracker with heart rate monitoring, GPS, and 7-day battery life.',
-    price: 129.99,
-    category: 'Electronics',
-    image: '/images/fitnesstracker.jpg',
-    inStock: false,
-    featured: false
-  },
-  {
-    id: '7',
-    name: 'LED Desk Lamp',
-    description: 'Adjustable LED desk lamp with multiple brightness levels and USB charging port.',
-    price: 59.99,
-    category: 'Home & Office',
-    image: '/images/desllamp.jpg',
-    inStock: true,
-    featured: false
-  },
-  {
-    id: '8',
-    name: 'Bluetooth Gaming Mouse',
-    description: 'Precision gaming mouse with customizable buttons, RGB lighting, and ergonomic design.',
-    price: 89.99,
-    category: 'Electronics',
-    image: '/images/gamingmouse.jpg',
-    inStock: true,
-    featured: true
-  }
-];
-
 const categories = [
-  { id: 'all', name: 'All Products', count: dummyProducts.length },
-  { id: 'electronics', name: 'Electronics', count: dummyProducts.filter(p => p.category === 'Electronics').length },
-  { id: 'accessories', name: 'Accessories', count: dummyProducts.filter(p => p.category === 'Accessories').length },
-  { id: 'audio', name: 'Audio', count: dummyProducts.filter(p => p.category === 'Audio').length },
-  { id: 'security', name: 'Security', count: dummyProducts.filter(p => p.category === 'Security').length },
-  { id: 'home-office', name: 'Home & Office', count: dummyProducts.filter(p => p.category === 'Home & Office').length },
+  { id: 'all', name: 'All Products', count: SAMPLE_PRODUCTS.length },
+  { id: 'electronics', name: 'Electronics', count: SAMPLE_PRODUCTS.filter(p => p.category === 'Electronics').length },
+  { id: 'accessories', name: 'Accessories', count: SAMPLE_PRODUCTS.filter(p => p.category === 'Accessories').length },
+  { id: 'audio', name: 'Audio', count: SAMPLE_PRODUCTS.filter(p => p.category === 'Audio').length },
+  { id: 'security', name: 'Security', count: SAMPLE_PRODUCTS.filter(p => p.category === 'Security').length },
+  { id: 'home-office', name: 'Home & Office', count: SAMPLE_PRODUCTS.filter(p => p.category === 'Home & Office').length },
 ];
 
 export default function StorePage() {
@@ -142,7 +59,7 @@ export default function StorePage() {
         <div className="mb-12">
           <h2 className="text-2xl font-bold text-secondary-900 mb-6">Featured Products</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {dummyProducts
+            {SAMPLE_PRODUCTS
               .filter(product => product.featured)
               .map((product) => (
                 <ProductCard key={product.id} product={product} />
@@ -155,7 +72,7 @@ export default function StorePage() {
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-2xl font-bold text-secondary-900">All Products</h2>
             <div className="flex items-center space-x-4 text-sm text-secondary-600">
-              <span>Showing {dummyProducts.length} products</span>
+              <span>Showing {SAMPLE_PRODUCTS.length} products</span>
               <select 
                 className="border border-secondary-300 rounded-md px-3 py-1 bg-white"
                 aria-label="Sort products"
@@ -171,7 +88,7 @@ export default function StorePage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {dummyProducts.map((product) => (
+            {SAMPLE_PRODUCTS.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}
           </div>

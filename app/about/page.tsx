@@ -36,11 +36,13 @@ export default function AboutPage() {
                 <p>
                   Founded in Massachusetts, Arktech5 LLC represents a commitment to excellence 
                   in the e-commerce industry. Under the leadership of owner Mayyed Hasan, 
-                  we&apos;ve built a reputation for reliability, professionalism, and customer satisfaction.
+                  we&apos;ve built a reputation for reliability, professionalism, and customer satisfaction 
+                  over our 1.5 years of dedicated service in the marketplace.
                 </p>
                 <p>
-                  As a registered LLC and verified Walmart Marketplace seller, we understand 
-                  the importance of trust in online commerce. Our business is built on the 
+                  With 1.5 years of proven experience in e-commerce operations, we&apos;ve successfully 
+                  served customers as a registered LLC and verified Walmart Marketplace seller. 
+                  We understand the importance of trust in online commerce, and our business is built on the 
                   foundation of transparency, quality products, and exceptional customer service.
                 </p>
                 <p>
@@ -79,6 +81,10 @@ export default function AboutPage() {
                   <div className="flex justify-between items-center p-3 bg-secondary-50 rounded-lg">
                     <span className="font-medium text-secondary-700">Owner</span>
                     <span className="text-primary-600 font-semibold">{BUSINESS_INFO.owner}</span>
+                  </div>
+                  <div className="flex justify-between items-center p-3 bg-secondary-50 rounded-lg">
+                    <span className="font-medium text-secondary-700">Experience</span>
+                    <span className="text-primary-600 font-semibold">1.5 Years</span>
                   </div>
                   <div className="flex justify-between items-center p-3 bg-secondary-50 rounded-lg">
                     <span className="font-medium text-secondary-700">Status</span>
@@ -160,6 +166,51 @@ export default function AboutPage() {
               </p>
             </Card>
           </div>
+        </div>
+
+        {/* Experience Highlight */}
+        <div className="mb-16">
+          <Card variant="elevated" className="bg-gradient-to-r from-primary-50 to-secondary-50 border-primary-200">
+            <CardContent className="p-8">
+              <div className="text-center">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-primary-600 text-white rounded-full text-2xl font-bold mb-4">
+                  1.5
+                </div>
+                <h3 className="text-2xl font-bold text-secondary-900 mb-2">
+                  Years of Proven Experience
+                </h3>
+                <p className="text-lg text-secondary-700 max-w-2xl mx-auto">
+                  Over the past 1.5 years, we&apos;ve successfully built and maintained our reputation 
+                  in the e-commerce industry, serving customers with dedication and achieving 
+                  verified seller status on major marketplaces.
+                </p>
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+                <div className="text-center">
+                  <div className="text-3xl mb-2">📈</div>
+                  <h4 className="font-semibold text-secondary-900 mb-1">Growing Success</h4>
+                  <p className="text-sm text-secondary-600">
+                    Consistent growth and customer satisfaction over 18 months
+                  </p>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl mb-2">✅</div>
+                  <h4 className="font-semibold text-secondary-900 mb-1">Proven Track Record</h4>
+                  <p className="text-sm text-secondary-600">
+                    Established reputation for reliability and professional service
+                  </p>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl mb-2">🎯</div>
+                  <h4 className="font-semibold text-secondary-900 mb-1">Market Expertise</h4>
+                  <p className="text-sm text-secondary-600">
+                    Deep understanding of e-commerce operations and customer needs
+                  </p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
         </div>
 
         {/* Business Credentials */}

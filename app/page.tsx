@@ -1,54 +1,13 @@
 import Link from 'next/link';
 import Hero from '@/components/ui/Hero';
 import TrustBadges from '@/components/ui/TrustBadges';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/common/Card';
+import ProductCard from '@/components/ui/ProductCard';
 import Button from '@/components/common/Button';
 import Container from '@/components/common/Container';
-import { TRUST_BADGES } from '@/lib/constants';
+import { TRUST_BADGES, SAMPLE_PRODUCTS } from '@/lib/constants';
 
-// Dummy featured products data
-const featuredProducts = [
-  {
-    id: '1',
-    name: 'Premium Wireless Headphones',
-    description: 'High-quality wireless headphones with noise cancellation',
-    price: 199.99,
-    category: 'Electronics',
-    image: '/images/wirlessheadphones.jpg',
-    inStock: true,
-    featured: true
-  },
-  {
-    id: '2',
-    name: 'Smart Home Security Camera',
-    description: '1080p HD security camera with night vision',
-    price: 149.99,
-    category: 'Security',
-    image: '/images/security.jpg',
-    inStock: true,
-    featured: true
-  },
-  {
-    id: '3',
-    name: 'Portable Bluetooth Speaker',
-    description: 'Waterproof speaker with 12-hour battery life',
-    price: 79.99,
-    category: 'Audio',
-    image: '/images/speaker.jpg',
-    inStock: true,
-    featured: true
-  },
-  {
-    id: '4',
-    name: 'USB-C Fast Charging Cable',
-    description: 'Durable 6ft USB-C cable with fast charging support',
-    price: 24.99,
-    category: 'Accessories',
-    image: '/images/cable.jpg',
-    inStock: true,
-    featured: true
-  }
-];
+// Get featured products from constants
+const featuredProducts = SAMPLE_PRODUCTS.filter(product => product.featured);
 
 export default function Home() {
   return (
@@ -79,42 +38,7 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
             {featuredProducts.map((product) => (
-              <Card key={product.id} variant="elevated" className="group hover:shadow-lg transition-all duration-300">
-                <div className="aspect-square bg-secondary-100 rounded-t-lg flex items-center justify-center overflow-hidden relative">
-                  <img
-                    src={product.image}
-                    alt={product.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-
-                <CardHeader className="pb-2">
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-primary-100 text-primary-800">
-                      {product.category}
-                    </span>
-                    <span className="text-success-600 text-sm font-medium">
-                      {product.inStock ? 'In Stock' : 'Out of Stock'}
-                    </span>
-                  </div>
-                  <CardTitle className="text-lg">{product.name}</CardTitle>
-                </CardHeader>
-
-                <CardContent>
-                  <p className="text-secondary-600 text-sm mb-4 line-clamp-2">
-                    {product.description}
-                  </p>
-
-                  <div className="flex items-center justify-between">
-                    <span className="text-2xl font-bold text-primary-600">
-                      ${product.price}
-                    </span>
-                    <Button size="sm" variant="outline">
-                      View Details
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
+              <ProductCard key={product.id} product={product} />
             ))}
           </div>
 

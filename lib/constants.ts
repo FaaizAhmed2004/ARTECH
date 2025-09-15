@@ -135,3 +135,87 @@ export const SOCIAL_LINKS = {
   linkedin: '#',
   instagram: '#'
 };
+
+// Sample Products for Store
+export const SAMPLE_PRODUCTS = [
+  {
+    id: '1',
+    name: 'Premium Wireless Headphones',
+    description: 'High-quality wireless headphones with active noise cancellation, 30-hour battery life, and premium sound quality.',
+    price: 199.99,
+    category: 'Electronics',
+    image: '/images/wirlessheadphones.jpg',
+    inStock: true,
+    featured: true
+  },
+  {
+    id: '2',
+    name: 'Smart Home Security Camera',
+    description: '1080p HD security camera with night vision, motion detection, and smartphone app integration.',
+    price: 149.99,
+    category: 'Security',
+    image: '/images/security.jpg',
+    inStock: true,
+    featured: true
+  },
+  {
+    id: '3',
+    name: 'Portable Bluetooth Speaker',
+    description: 'Waterproof portable speaker with 12-hour battery life, deep bass, and crystal-clear sound.',
+    price: 79.99,
+    category: 'Audio',
+    image: '/images/speaker.jpg',
+    inStock: true,
+    featured: false
+  },
+  {
+    id: '4',
+    name: 'USB-C Fast Charging Cable',
+    description: 'Durable 6ft USB-C cable with fast charging support and data transfer capabilities.',
+    price: 24.99,
+    category: 'Accessories',
+    image: '/images/cable.jpg',
+    inStock: true,
+    featured: false
+  },
+  {
+    id: '5',
+    name: 'Wireless Power Bank',
+    description: 'High-capacity power bank with wireless charging and multiple USB ports for all your devices.',
+    price: 39.99,
+    category: 'Accessories',
+    image: '/images/wirelessbank.jpg',
+    inStock: true,
+    featured: false
+  },
+  {
+    id: '6',
+    name: 'Smart Fitness Tracker',
+    description: 'Advanced fitness tracker with heart rate monitoring, GPS, and 7-day battery life.',
+    price: 129.99,
+    category: 'Electronics',
+    image: '/images/fitnesstracker.jpg',
+    inStock: false,
+    featured: false
+  },
+  {
+    id: '7',
+    name: 'LED Desk Lamp',
+    description: 'Adjustable LED desk lamp with multiple brightness levels and USB charging port.',
+    price: 59.99,
+    category: 'Home & Office',
+    image: '/images/desllamp.jpg',
+    inStock: true,
+    featured: false
+  },
+  {
+    id: '8',
+    name: 'Bluetooth Gaming Mouse',
+    description: 'Precision gaming mouse with customizable buttons, RGB lighting, and ergonomic design.',
+    price: 89.99,
+    category: 'Electronics',
+    image: '/images/gamingmouse.jpg',
+    inStock: true,
+    featured: true
+  }
+];
