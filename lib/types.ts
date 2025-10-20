@@ -2,6 +2,7 @@
 export interface BusinessInfo {
   name: string;
   owner: string;
+  registrationNumber?: string; // Optional field for business registration number
   address: {
     street: string;
     city: string;

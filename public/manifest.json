@@ -1,7 +1,7 @@
 {
   "name": "Arktech5 - Professional E-commerce Solutions",
   "short_name": "Arktech5",
-  "description": "Arktech5 LLC - Your trusted partner for quality products and exceptional service. Walmart Marketplace seller based in Bellingham, Massachusetts.",
+  "description": "Arktech5 - Your trusted partner for quality products and exceptional service. Walmart Marketplace seller based in Mississauga, Ontario, Canada.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
@@ -22,6 +22,6 @@
     }
   ],
   "categories": ["shopping", "business"],
-  "lang": "en-US",
+  "lang": "en-CA",
   "dir": "ltr"
 }

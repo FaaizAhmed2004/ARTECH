@@ -43,8 +43,13 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
                 <p className="text-secondary-300">
                   <span className="font-medium text-white">Owner:</span> {BUSINESS_INFO.owner}
                 </p>
+                {BUSINESS_INFO.registrationNumber && (
+                  <p className="text-secondary-300">
+                    <span className="font-medium text-white">Registration:</span> {BUSINESS_INFO.registrationNumber}
+                  </p>
+                )}
                 <p className="text-secondary-300">
-                  <span className="font-medium text-white">Established:</span> Massachusetts LLC
+                  <span className="font-medium text-white">Business Type:</span> {BUSINESS_INFO.businessType}
                 </p>
               </div>
             </div>
@@ -129,7 +134,7 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
         <div className="border-t border-secondary-800 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-sm text-secondary-400">
-              <p>© {currentYear} {BUSINESS_INFO.name} LLC. All rights reserved.</p>
+              <p>© {currentYear} {BUSINESS_INFO.name} {BUSINESS_INFO.registrationNumber ? `(${BUSINESS_INFO.registrationNumber})` : 'LLC'}. All rights reserved.</p>
             </div>
             
             <div className="flex items-center space-x-6 text-sm text-secondary-400">
@@ -139,7 +144,7 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
               </div>
               <div className="flex items-center space-x-2">
                 <span className="text-blue-400">🏢</span>
-                <span>LLC Registered</span>
+                <span>Canada Inc. Registered</span>
               </div>
               <div className="flex items-center space-x-2">
                 <span className="text-yellow-400">🛒</span>

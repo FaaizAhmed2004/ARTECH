@@ -84,7 +84,7 @@ const TrustBadges: React.FC<TrustBadgesProps> = ({ badges, className }) => {
             <div className="flex items-center justify-center space-x-3 p-4 bg-secondary-50 rounded-lg">
               <span className="text-2xl">🏢</span>
               <div>
-                <div className="font-semibold text-secondary-900">Massachusetts LLC</div>
+                <div className="font-semibold text-secondary-900">Canada Inc. Registered</div>
                 <div className="text-sm text-secondary-600">Officially Registered</div>
               </div>
             </div>

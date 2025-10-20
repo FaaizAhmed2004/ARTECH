@@ -8,8 +8,8 @@ import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'About Us - Arktech5 | Our Story & Mission',
-  description: 'Learn about Arktech5 LLC, founded by Mayyed Hasan in Massachusetts. Discover our mission, vision, and commitment to professional e-commerce excellence.',
-  keywords: ['about Arktech5', 'company story', 'Mayyed Hasan', 'Massachusetts LLC', 'e-commerce business', 'mission vision'],
+  description: 'Learn about Arktech5, founded by Adeel Shafiq in Canada. Discover our mission, vision, and commitment to professional e-commerce excellence.',
+  keywords: ['about Arktech5', 'company story', 'Adeel Shafiq', 'Canadian corporation', 'e-commerce business', 'mission vision'],
 };
 
 export default function AboutPage() {
@@ -34,8 +34,8 @@ export default function AboutPage() {
               <h2 className="text-3xl font-bold text-secondary-900 mb-4">Our Story</h2>
               <div className="space-y-4 text-secondary-700 leading-relaxed">
                 <p>
-                  Founded in Massachusetts, Arktech5 LLC represents a commitment to excellence 
-                  in the e-commerce industry. Under the leadership of owner Mayyed Hasan, 
+                  Founded in Canada, Arktech5 represents a commitment to excellence 
+                  in the e-commerce industry. Under the leadership of owner Adeel Shafiq, 
                   we&apos;ve built a reputation for reliability, professionalism, and customer satisfaction 
                   over our 1.5 years of dedicated service in the marketplace.
                 </p>
@@ -46,7 +46,7 @@ export default function AboutPage() {
                   foundation of transparency, quality products, and exceptional customer service.
                 </p>
                 <p>
-                  Located in Bellingham, Massachusetts, we serve customers nationwide with 
+                  Located in Mississauga, Ontario, Canada, we serve customers with 
                   a focus on providing secure, reliable shopping experiences backed by 
                   comprehensive policies and professional support.
                 </p>
@@ -72,7 +72,7 @@ export default function AboutPage() {
                 <div className="space-y-3 text-left">
                   <div className="flex justify-between items-center p-3 bg-secondary-50 rounded-lg">
                     <span className="font-medium text-secondary-700">Founded</span>
-                    <span className="text-primary-600 font-semibold">Massachusetts</span>
+                    <span className="text-primary-600 font-semibold">Canada</span>
                   </div>
                   <div className="flex justify-between items-center p-3 bg-secondary-50 rounded-lg">
                     <span className="font-medium text-secondary-700">Business Type</span>
@@ -223,10 +223,10 @@ export default function AboutPage() {
             <Card variant="elevated" className="text-center p-8">
               <div className="text-5xl mb-4">🏢</div>
               <h3 className="text-xl font-semibold text-secondary-900 mb-2">
-                Massachusetts LLC
+                Canadian Corporation
               </h3>
               <p className="text-secondary-600 mb-4">
-                Officially registered Limited Liability Company in the state of Massachusetts, 
+                Officially registered Canadian corporation (17402325 CANADA INC.), 
                 ensuring legal compliance and business legitimacy.
               </p>
               <div className="text-sm text-secondary-500">

@@ -3,19 +3,20 @@ import { BusinessInfo, NavigationItem, TrustBadge } from './types';
 // Business Information
 export const BUSINESS_INFO: BusinessInfo = {
   name: 'Arktech5',
-  owner: 'Mayyed Hasan',
+  owner: 'Adeel Shafiq',
+  registrationNumber: '17402325 CANADA INC.',
   address: {
-    street: '2 Connor Lane',
-    city: 'Bellingham',
-    state: 'Massachusetts',
-    zipCode: '02019',
-    full: '2 Connor Lane, Bellingham, Massachusetts, 02019'
+    street: '3174 Tacc drive',
+    city: 'Mississauga',
+    state: 'ON',
+    zipCode: 'L5M 0B6',
+    full: '3174 Tacc drive, Mississauga, ON, L5M 0B6'
   },
   contact: {
-    email: 'support@ark5tech.com',
-    phone: '+1 (781) 241-5399'
+    email: 'raoadeelshafiq@gmail.com',
+    phone: '+1 437 254 3111'
   },
-  businessType: 'LLC registered e-commerce (Walmart Marketplace seller)'
+  businessType: 'Canadian Corporation'
 };
 
 // Navigation Menu
@@ -73,8 +74,8 @@ export const TRUST_BADGES: TrustBadge[] = [
   },
   {
     icon: '🏢',
-    title: 'LLC Registered',
-    description: 'Officially registered business in Massachusetts'
+    title: 'Canada Inc. Registered',
+    description: 'Officially registered Canadian corporation'
   },
   {
     icon: '🛒',
@@ -104,8 +105,8 @@ export const SEO_KEYWORDS = [
   'online shopping',
   'Arktech5',
   'Walmart marketplace',
-  'Massachusetts business',
-  'LLC registered',
+  'Canadian business',
+  'Canada Inc. registered',
   'professional service',
   'quality products',
   'customer service',

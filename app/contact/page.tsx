@@ -7,8 +7,8 @@ import { BUSINESS_INFO, BUSINESS_HOURS } from '@/lib/constants';
 
 export const metadata: Metadata = {
   title: 'Contact Us - Arktech5 | Get in Touch with Our Team',
-  description: 'Contact Arktech5 for customer support, inquiries, or business questions. Located in Bellingham, Massachusetts. Phone: +1 (781) 241-5399',
-  keywords: ['contact Arktech5', 'customer support', 'business inquiries', 'Massachusetts', 'phone support'],
+  description: 'Contact Arktech5 for customer support, inquiries, or business questions. Located in Mississauga, Ontario, Canada. Phone: +1 437 254 3111',
+  keywords: ['contact Arktech5', 'customer support', 'business inquiries', 'Canada', 'Ontario', 'phone support'],
 };
 
 export default function ContactPage() {
@@ -45,7 +45,7 @@ export default function ContactPage() {
               <CardContent className="space-y-4">
                 <div>
                   <h4 className="font-semibold text-secondary-900 mb-1">Company</h4>
-                  <p className="text-secondary-600">{BUSINESS_INFO.name} LLC</p>
+                  <p className="text-secondary-600">{BUSINESS_INFO.name} {BUSINESS_INFO.registrationNumber ? `(${BUSINESS_INFO.registrationNumber})` : 'LLC'}</p>
                 </div>
                 
                 <div>
@@ -168,7 +168,7 @@ export default function ContactPage() {
               We&apos;re Here to Help
             </h3>
             <p className="text-secondary-600 mb-6">
-              As a Massachusetts-based LLC and verified Walmart Marketplace seller, 
+              As a Canadian corporation and verified Walmart Marketplace seller, 
               we&apos;re committed to providing exceptional customer service. Whether you have 
               questions about our products, need support with an order, or want to learn 
               more about our business, we&apos;re ready to assist you.
@@ -177,8 +177,8 @@ export default function ContactPage() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="text-center">
                 <div className="text-3xl mb-2">🏢</div>
-                <h4 className="font-semibold text-secondary-900 mb-1">LLC Registered</h4>
-                <p className="text-sm text-secondary-600">Official Massachusetts business</p>
+                <h4 className="font-semibold text-secondary-900 mb-1">Canada Inc. Registered</h4>
+                <p className="text-sm text-secondary-600">Official Canadian corporation</p>
               </div>
               <div className="text-center">
                 <div className="text-3xl mb-2">🛒</div>

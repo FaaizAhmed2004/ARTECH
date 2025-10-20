@@ -9,21 +9,21 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata: Metadata = {
   metadataBase: new URL('https://arktech5.com'),
   title: 'Arktech5 - Professional E-commerce Solutions',
-  description: 'Arktech5 LLC - Your trusted partner for quality products and exceptional service. Walmart Marketplace seller based in Bellingham, Massachusetts.',
-  keywords: ['e-commerce', 'online shopping', 'Arktech5', 'Walmart marketplace', 'Massachusetts business'],
-  authors: [{ name: 'Arktech5 LLC' }],
-  creator: 'Arktech5 LLC',
-  publisher: 'Arktech5 LLC',
+  description: 'Arktech5 - Your trusted partner for quality products and exceptional service. Walmart Marketplace seller based in Mississauga, Ontario, Canada.',
+  keywords: ['e-commerce', 'online shopping', 'Arktech5', 'Walmart marketplace', 'Canadian business'],
+  authors: [{ name: 'Arktech5' }],
+  creator: 'Arktech5',
+  publisher: 'Arktech5',
   robots: 'index, follow',
   verification: {
     google: 'google-site-verification-code',
   },
   openGraph: {
     type: 'website',
-    locale: 'en_US',
+    locale: 'en_CA',
     url: 'https://arktech5.com',
     title: 'Arktech5 - Professional E-commerce Solutions',
-    description: 'Arktech5 LLC - Your trusted partner for quality products and exceptional service.',
+    description: 'Arktech5 - Your trusted partner for quality products and exceptional service.',
     siteName: 'Arktech5',
     images: [
       {
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Arktech5 - Professional E-commerce Solutions',
-    description: 'Arktech5 LLC - Your trusted partner for quality products and exceptional service.',
+    description: 'Arktech5 - Your trusted partner for quality products and exceptional service.',
     images: ['/images/twitter-image.jpg'],
   },
 }
@@ -50,23 +50,24 @@ export default function RootLayout({
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "Arktech5 LLC",
+    "name": "Arktech5",
+    "legalName": "17402325 CANADA INC.",
     "url": "https://arktech5.com",
     "logo": "https://arktech5.com/images/logo.png",
     "description": "Professional e-commerce solutions and quality products with exceptional customer service.",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "2 Connor Lane",
-      "addressLocality": "Bellingham",
-      "addressRegion": "MA",
-      "postalCode": "02019",
-      "addressCountry": "US"
+      "streetAddress": "3174 Tacc drive",
+      "addressLocality": "Mississauga",
+      "addressRegion": "ON",
+      "postalCode": "L5M 0B6",
+      "addressCountry": "CA"
     },
     "contactPoint": {
       "@type": "ContactPoint",
-      "telephone": "+1-781-241-5399",
+      "telephone": "+1-437-254-3111",
       "contactType": "customer service",
-      "email": "support@ark5tech.com"
+      "email": "raoadeelshafiq@gmail.com"
     },
     "sameAs": [
       "https://www.walmart.com/seller/arktech5"

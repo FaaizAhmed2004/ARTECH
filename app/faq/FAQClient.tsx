@@ -116,7 +116,7 @@ const faqData = [
     questions: [
       {
         question: 'Who is Arktech5?',
-        answer: 'Arktech5 LLC is a Massachusetts-based e-commerce company owned by ' + BUSINESS_INFO.owner + '. We&apos;re a registered LLC and verified Walmart Marketplace seller committed to providing quality products and exceptional customer service.'
+        answer: 'Arktech5 is a Canadian corporation (' + (BUSINESS_INFO.registrationNumber || 'registered business') + ') owned by ' + BUSINESS_INFO.owner + '. We&apos;re a registered Canadian corporation and verified Walmart Marketplace seller committed to providing quality products and exceptional customer service.'
       },
       {
         question: 'What are your business hours?',
@@ -128,7 +128,7 @@ const faqData = [
       },
       {
         question: 'Do you have a physical store?',
-        answer: 'We&apos;re an online-only business based in ' + BUSINESS_INFO.address.city + ', Massachusetts. While we don&apos;t have a physical retail store, our customer service team provides personalized support for all your needs.'
+        answer: 'We&apos;re an online-only business based in ' + BUSINESS_INFO.address.city + ', ' + BUSINESS_INFO.address.state + ', Canada. While we don&apos;t have a physical retail store, our customer service team provides personalized support for all your needs.'
       }
     ]
   }

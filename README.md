@@ -4,12 +4,12 @@ A professional e-commerce website built with Next.js 14, TypeScript, and Tailwin
 
 ## Business Information
 
-- **Company**: Arktech5 LLC
-- **Owner**: Mayyed Hasan
-- **Address**: 2 Connor Lane, Bellingham, Massachusetts, 02019
-- **Email**: support@ark5tech.com
-- **Phone**: +1 (781) 241-5399
-- **Business Type**: LLC registered e-commerce (Walmart Marketplace seller)
+- **Company**: Arktech5 (17402325 CANADA INC.)
+- **Owner**: Adeel Shafiq
+- **Address**: 3174 Tacc drive, Mississauga, ON, L5M 0B6
+- **Email**: raoadeelshafiq@gmail.com
+- **Phone**: +1 437 254 3111
+- **Business Type**: Canadian Corporation
 
 ## Technology Stack
 
@@ -69,4 +69,4 @@ Check out the [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 ## License
 
-This project is proprietary software owned by Arktech5 LLC.
+This project is proprietary software owned by Arktech5 (17402325 CANADA INC.).

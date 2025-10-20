@@ -15,7 +15,7 @@ export default function Home() {
       {/* Hero Section */}
       <Hero
         title="Welcome to Arktech5"
-        subtitle="Your trusted partner for quality products and exceptional customer service. We're a Massachusetts-based LLC committed to providing professional e-commerce solutions with integrity and reliability."
+        subtitle="Your trusted partner for quality products and exceptional customer service. We're a Canadian corporation committed to providing professional e-commerce solutions with integrity and reliability."
         ctaText="Shop Our Store"
         ctaHref="/store"
       />

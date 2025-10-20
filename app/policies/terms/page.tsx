@@ -67,8 +67,10 @@ export default function TermsPage() {
                   <ul className="space-y-1 text-sm text-secondary-700">
                     <li><strong>Company:</strong> {BUSINESS_INFO.name} LLC</li>
                     <li><strong>Owner:</strong> {BUSINESS_INFO.owner}</li>
-                    <li><strong>Business Type:</strong> Limited Liability Company</li>
-                    <li><strong>Registration:</strong> Massachusetts</li>
+                    <li><strong>Business Type:</strong> {BUSINESS_INFO.businessType}</li>
+                    {BUSINESS_INFO.registrationNumber && (
+                      <li><strong>Registration:</strong> {BUSINESS_INFO.registrationNumber}</li>
+                    )}
                   </ul>
                 </div>
                 <div>
@@ -293,9 +295,9 @@ export default function TermsPage() {
             </CardHeader>
             <CardContent className="space-y-4">
               <p className="text-secondary-700 leading-relaxed">
-                These Terms are governed by and construed in accordance with the laws of the Commonwealth of Massachusetts, 
+                These Terms are governed by and construed in accordance with the laws of Canada and the Province of Ontario, 
                 without regard to its conflict of law principles. Any disputes arising under these Terms shall be subject 
-                to the exclusive jurisdiction of the courts of Massachusetts.
+                to the exclusive jurisdiction of the courts of Ontario, Canada.
               </p>
             </CardContent>
           </Card>
