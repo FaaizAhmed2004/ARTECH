@@ -1,49 +1,42 @@
+const { getOptimizedWebpackConfig, getBuildPerformanceConfig } = require('./lib/build/config');
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Optimize for memory usage
+  // Enhanced SWC minification with better memory management
   swcMinify: true,
   
-  // Reduce build memory usage
+  // Optimized experimental features for reliability
   experimental: {
     // Disabled optimizeCss due to critters module issue and memory usage
     // optimizeCss: true,
     workerThreads: false,
     cpus: 1,
+    // Enable modern build features for better performance
+    esmExternals: true,
+    serverComponentsExternalPackages: [],
   },
   
-  // Simplified image optimization settings
+  // Enhanced image optimization settings
   images: {
     domains: ['localhost'],
-    formats: ['image/webp'],
+    formats: ['image/webp', 'image/avif'],
     deviceSizes: [640, 828, 1200, 1920],
     imageSizes: [16, 32, 48, 64, 96, 128, 256],
     minimumCacheTTL: 60 * 60 * 24 * 7, // 7 days
+    dangerouslyAllowSVG: false,
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
   
-  // Compression
+  // Enhanced compression and caching
   compress: true,
+  poweredByHeader: false,
   
-  // Optimize webpack for memory
-  webpack: (config, { isServer }) => {
-    // Reduce memory usage
-    config.optimization.splitChunks = {
-      chunks: 'all',
-      cacheGroups: {
-        default: {
-          minChunks: 2,
-          priority: -20,
-          reuseExistingChunk: true,
-        },
-        vendor: {
-          test: /[\\/]node_modules[\\/]/,
-          name: 'vendors',
-          priority: -10,
-          chunks: 'all',
-        },
-      },
-    };
-    
-    return config;
+  // Build performance configuration
+  ...getBuildPerformanceConfig(),
+  
+  // Enhanced webpack configuration with dynamic optimization
+  webpack: (config, context) => {
+    return getOptimizedWebpackConfig(config, context);
   },
   
   // Security headers (simplified)

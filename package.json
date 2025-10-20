@@ -4,10 +4,14 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "cross-env NODE_OPTIONS='--max-old-space-size=4096' next build",
-    "build:memory": "node --max-old-space-size=8192 ./node_modules/.bin/next build",
+    "build": "cross-env NODE_OPTIONS=\"--max-old-space-size=4096\" next build",
+    "build:memory": "cross-env NODE_OPTIONS=\"--max-old-space-size=8192\" next build",
+    "build:analyze": "cross-env ANALYZE=true NODE_OPTIONS=\"--max-old-space-size=4096\" next build",
+    "build:vercel": "cross-env NODE_OPTIONS=\"--max-old-space-size=3008\" next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "validate-env": "node -e \"require('./lib/build/environment').validateEnvironment()\"",
+    "validate-build": "node scripts/validate-build.js"
   },
   "dependencies": {
     "clsx": "^2.1.1",
