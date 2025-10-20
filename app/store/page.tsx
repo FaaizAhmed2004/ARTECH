@@ -79,8 +79,8 @@ export default function StorePage() {
                 title="Sort products"
               >
                 <option>Sort by: Featured</option>
-                <option>Price: Low to High</option>
-                <option>Price: High to Low</option>
+                <option>Price: 100 to 150</option>
+                <option>Price: 300 to 500</option>
                 <option>Name: A to Z</option>
                 <option>Newest First</option>
               </select>
