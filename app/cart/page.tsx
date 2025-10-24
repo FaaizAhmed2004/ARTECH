@@ -1,12 +1,19 @@
 import type { Metadata } from 'next';
-import CartPage from './CartPage';
+import React from 'react';
+import Container from '@/components/common/Container';
+import CartPage from '@/components/cart/CartPage';
 
 export const metadata: Metadata = {
   title: 'Shopping Cart - Arktech5',
-  description: 'Review your selected items and proceed to checkout with Arktech5.',
-  keywords: ['shopping cart', 'checkout', 'Arktech5', 'e-commerce'],
+  description: 'Review your selected items and proceed to checkout.',
 };
 
 export default function Cart() {
-  return <CartPage />;
+  return (
+    <div className="py-8">
+      <Container>
+        <CartPage />
+      </Container>
+    </div>
+  );
 }

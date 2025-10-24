@@ -2,8 +2,7 @@ const { getOptimizedWebpackConfig, getBuildPerformanceConfig } = require('./lib/
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Enhanced SWC minification with better memory management
-  swcMinify: true,
+  // Enhanced minification with better memory management
   
   // Optimized experimental features for reliability
   experimental: {
@@ -13,8 +12,10 @@ const nextConfig = {
     cpus: 1,
     // Enable modern build features for better performance
     esmExternals: true,
-    serverComponentsExternalPackages: [],
   },
+
+  // Server external packages
+  serverExternalPackages: ['pg'],
   
   // Enhanced image optimization settings
   images: {

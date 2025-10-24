@@ -1,10 +1,8 @@
 import type { Metadata } from 'next';
 import React from 'react';
-import ProductCard from '@/components/ui/ProductCard';
 import Container from '@/components/common/Container';
-import Button from '@/components/common/Button';
-import { Product } from '@/lib/types';
-import { SAMPLE_PRODUCTS } from '@/lib/constants';
+import ProductGrid from '@/components/products/ProductGrid';
+import { Product } from '@/lib/types/ecommerce';
 
 export const metadata: Metadata = {
   title: 'Store - Arktech5 | Quality Products & Professional Service',
@@ -12,13 +10,125 @@ export const metadata: Metadata = {
   keywords: ['online store', 'electronics', 'accessories', 'quality products', 'Arktech5 store', 'e-commerce'],
 };
 
-const categories = [
-  { id: 'all', name: 'All Products', count: SAMPLE_PRODUCTS.length },
-  { id: 'electronics', name: 'Electronics', count: SAMPLE_PRODUCTS.filter(p => p.category === 'Electronics').length },
-  { id: 'accessories', name: 'Accessories', count: SAMPLE_PRODUCTS.filter(p => p.category === 'Accessories').length },
-  { id: 'audio', name: 'Audio', count: SAMPLE_PRODUCTS.filter(p => p.category === 'Audio').length },
-  { id: 'security', name: 'Security', count: SAMPLE_PRODUCTS.filter(p => p.category === 'Security').length },
-  { id: 'home-office', name: 'Home & Office', count: SAMPLE_PRODUCTS.filter(p => p.category === 'Home & Office').length },
+// Sample products for demonstration
+const SAMPLE_PRODUCTS: Product[] = [
+  {
+    id: '1',
+    name: 'Premium Wireless Headphones',
+    description: 'High-quality wireless headphones with noise cancellation and premium sound quality. Perfect for music lovers and professionals.',
+    price: 299.99,
+    images: ['/images/products/headphones-1.jpg', '/images/products/headphones-2.jpg'],
+    category: 'Electronics',
+    stock: 50,
+    variants: [
+      { id: 'v1', name: 'Color', value: 'Black', priceModifier: 0, stock: 25 },
+      { id: 'v2', name: 'Color', value: 'White', priceModifier: 0, stock: 25 }
+    ],
+    status: 'active',
+    createdAt: new Date('2024-01-15'),
+    updatedAt: new Date('2024-01-15')
+  },
+  {
+    id: '2',
+    name: 'Smart Fitness Tracker',
+    description: 'Advanced fitness tracker with heart rate monitoring, GPS, and smartphone integration. Track your health and fitness goals.',
+    price: 199.99,
+    images: ['/images/products/fitness-tracker-1.jpg'],
+    category: 'Electronics',
+    stock: 75,
+    variants: [],
+    status: 'active',
+    createdAt: new Date('2024-01-10'),
+    updatedAt: new Date('2024-01-10')
+  },
+  {
+    id: '3',
+    name: 'Ergonomic Office Chair',
+    description: 'Professional ergonomic office chair with lumbar support and adjustable height. Designed for comfort during long work sessions.',
+    price: 449.99,
+    images: ['/images/products/office-chair-1.jpg'],
+    category: 'Furniture',
+    stock: 25,
+    variants: [
+      { id: 'v3', name: 'Color', value: 'Black', priceModifier: 0, stock: 15 },
+      { id: 'v4', name: 'Color', value: 'Gray', priceModifier: 0, stock: 10 }
+    ],
+    status: 'active',
+    createdAt: new Date('2024-01-08'),
+    updatedAt: new Date('2024-01-08')
+  },
+  {
+    id: '4',
+    name: 'Portable Bluetooth Speaker',
+    description: 'Compact and powerful Bluetooth speaker with waterproof design. Perfect for outdoor activities and travel.',
+    price: 89.99,
+    images: ['/images/products/speaker-1.jpg'],
+    category: 'Electronics',
+    stock: 100,
+    variants: [],
+    status: 'active',
+    createdAt: new Date('2024-01-05'),
+    updatedAt: new Date('2024-01-05')
+  },
+  {
+    id: '5',
+    name: 'Professional Camera Lens',
+    description: 'High-quality camera lens for professional photography. Compatible with major camera brands.',
+    price: 799.99,
+    images: ['/images/products/camera-lens-1.jpg'],
+    category: 'Photography',
+    stock: 15,
+    variants: [],
+    status: 'active',
+    createdAt: new Date('2024-01-03'),
+    updatedAt: new Date('2024-01-03')
+  },
+  {
+    id: '6',
+    name: 'Gaming Mechanical Keyboard',
+    description: 'RGB mechanical gaming keyboard with customizable keys and premium switches. Perfect for gaming and typing.',
+    price: 159.99,
+    images: ['/images/products/keyboard-1.jpg'],
+    category: 'Electronics',
+    stock: 60,
+    variants: [
+      { id: 'v5', name: 'Switch Type', value: 'Blue', priceModifier: 0, stock: 20 },
+      { id: 'v6', name: 'Switch Type', value: 'Red', priceModifier: 0, stock: 20 },
+      { id: 'v7', name: 'Switch Type', value: 'Brown', priceModifier: 0, stock: 20 }
+    ],
+    status: 'active',
+    createdAt: new Date('2024-01-01'),
+    updatedAt: new Date('2024-01-01')
+  },
+  {
+    id: '7',
+    name: 'Stainless Steel Water Bottle',
+    description: 'Insulated stainless steel water bottle that keeps drinks cold for 24 hours or hot for 12 hours.',
+    price: 34.99,
+    images: ['/images/products/water-bottle-1.jpg'],
+    category: 'Lifestyle',
+    stock: 200,
+    variants: [
+      { id: 'v8', name: 'Size', value: '16oz', priceModifier: 0, stock: 100 },
+      { id: 'v9', name: 'Size', value: '24oz', priceModifier: 10, stock: 100 }
+    ],
+    status: 'active',
+    createdAt: new Date('2023-12-28'),
+    updatedAt: new Date('2023-12-28')
+  },
+  {
+    id: '8',
+    name: 'Wireless Charging Pad',
+    description: 'Fast wireless charging pad compatible with all Qi-enabled devices. Sleek design with LED indicators.',
+    price: 49.99,
+    images: ['/images/products/charging-pad-1.jpg'],
+    category: 'Electronics',
+    stock: 80,
+    variants: [],
+    status: 'active',
+    createdAt: new Date('2023-12-25'),
+    updatedAt: new Date('2023-12-25')
+  }
 ];
 
 export default function StorePage() {
@@ -27,94 +137,44 @@ export default function StorePage() {
       <Container>
         {/* Page Header */}
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-secondary-900 mb-4">
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">
             Our Store
           </h1>
-          <p className="text-lg text-secondary-600 max-w-2xl mx-auto">
-            Discover our carefully curated selection of quality products. 
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            Discover our carefully curated selection of quality products.
             Each item is backed by our commitment to excellence and customer satisfaction.
           </p>
         </div>
 
-        {/* Category Filter */}
-        <div className="mb-8">
-          <div className="flex flex-wrap gap-2 justify-center">
-            {categories.map((category) => (
-              <Button
-                key={category.id}
-                variant={category.id === 'all' ? 'primary' : 'outline'}
-                size="sm"
-                className="flex items-center space-x-2"
-              >
-                <span>{category.name}</span>
-                <span className="bg-white/20 px-2 py-0.5 rounded-full text-xs">
-                  {category.count}
-                </span>
-              </Button>
-            ))}
-          </div>
-        </div>
-
-        {/* Featured Products Section */}
-        <div className="mb-12">
-          <h2 className="text-2xl font-bold text-secondary-900 mb-6">Featured Products</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {SAMPLE_PRODUCTS
-              .filter(product => product.featured)
-              .map((product) => (
-                <ProductCard key={product.id} product={product} />
-              ))}
-          </div>
-        </div>
-
-        {/* All Products Section */}
-        <div>
-          <div className="flex items-center justify-between mb-6">
-            <h2 className="text-2xl font-bold text-secondary-900">All Products</h2>
-            <div className="flex items-center space-x-4 text-sm text-secondary-600">
-              <span>Showing {SAMPLE_PRODUCTS.length} products</span>
-              <select 
-                className="border border-secondary-300 rounded-md px-3 py-1 bg-white"
-                aria-label="Sort products"
-                title="Sort products"
-              >
-                <option>Sort by: Featured</option>
-                <option>Price: 100 to 150</option>
-                <option>Price: 300 to 500</option>
-                <option>Name: A to Z</option>
-                <option>Newest First</option>
-              </select>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {SAMPLE_PRODUCTS.map((product) => (
-              <ProductCard key={product.id} product={product} />
-            ))}
-          </div>
-        </div>
+        {/* Products Grid with Filters */}
+        <ProductGrid
+          products={SAMPLE_PRODUCTS}
+          showFilters={true}
+          showSearch={true}
+          columns={3}
+        />
 
         {/* Store Information */}
-        <div className="mt-16 bg-secondary-50 rounded-xl p-8">
+        <div className="mt-16 bg-gray-50 rounded-xl p-8">
           <div className="text-center max-w-3xl mx-auto">
-            <h3 className="text-2xl font-bold text-secondary-900 mb-4">
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">
               Why Shop with Arktech5?
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
               <div className="text-center">
                 <div className="text-3xl mb-2">🚚</div>
-                <h4 className="font-semibold text-secondary-900 mb-1">Fast Shipping</h4>
-                <p className="text-sm text-secondary-600">Quick and reliable delivery nationwide</p>
+                <h4 className="font-semibold text-gray-900 mb-1">Fast Shipping</h4>
+                <p className="text-sm text-gray-600">Quick and reliable delivery nationwide</p>
               </div>
               <div className="text-center">
                 <div className="text-3xl mb-2">↩️</div>
-                <h4 className="font-semibold text-secondary-900 mb-1">30-Day Returns</h4>
-                <p className="text-sm text-secondary-600">Easy returns and refunds within 30 days</p>
+                <h4 className="font-semibold text-gray-900 mb-1">30-Day Returns</h4>
+                <p className="text-sm text-gray-600">Easy returns and refunds within 30 days</p>
               </div>
               <div className="text-center">
                 <div className="text-3xl mb-2">🔒</div>
-                <h4 className="font-semibold text-secondary-900 mb-1">Secure Shopping</h4>
-                <p className="text-sm text-secondary-600">SSL encrypted checkout and data protection</p>
+                <h4 className="font-semibold text-gray-900 mb-1">Secure Shopping</h4>
+                <p className="text-sm text-gray-600">SSL encrypted checkout and data protection</p>
               </div>
             </div>
           </div>

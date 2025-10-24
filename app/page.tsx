@@ -1,13 +1,67 @@
 import Link from 'next/link';
 import Hero from '@/components/ui/Hero';
 import TrustBadges from '@/components/ui/TrustBadges';
-import ProductCard from '@/components/ui/ProductCard';
+import ProductCard from '@/components/products/ProductCard';
 import Button from '@/components/common/Button';
 import Container from '@/components/common/Container';
-import { TRUST_BADGES, SAMPLE_PRODUCTS } from '@/lib/constants';
+import { TRUST_BADGES } from '@/lib/constants';
+import { Product } from '@/lib/types/ecommerce';
 
-// Get featured products from constants
-const featuredProducts = SAMPLE_PRODUCTS.filter(product => product.featured);
+// Featured products for home page
+const featuredProducts: Product[] = [
+  {
+    id: '1',
+    name: 'Premium Wireless Headphones',
+    description: 'High-quality wireless headphones with noise cancellation and premium sound quality.',
+    price: 299.99,
+    images: ['/images/products/headphones-1.jpg'],
+    category: 'Electronics',
+    stock: 50,
+    variants: [],
+    status: 'active',
+    createdAt: new Date('2024-01-15'),
+    updatedAt: new Date('2024-01-15')
+  },
+  {
+    id: '2',
+    name: 'Smart Fitness Tracker',
+    description: 'Advanced fitness tracker with heart rate monitoring and GPS.',
+    price: 199.99,
+    images: ['/images/products/fitness-tracker-1.jpg'],
+    category: 'Electronics',
+    stock: 75,
+    variants: [],
+    status: 'active',
+    createdAt: new Date('2024-01-10'),
+    updatedAt: new Date('2024-01-10')
+  },
+  {
+    id: '3',
+    name: 'Ergonomic Office Chair',
+    description: 'Professional ergonomic office chair with lumbar support.',
+    price: 449.99,
+    images: ['/images/products/office-chair-1.jpg'],
+    category: 'Furniture',
+    stock: 25,
+    variants: [],
+    status: 'active',
+    createdAt: new Date('2024-01-08'),
+    updatedAt: new Date('2024-01-08')
+  },
+  {
+    id: '4',
+    name: 'Portable Bluetooth Speaker',
+    description: 'Compact and powerful Bluetooth speaker with waterproof design.',
+    price: 89.99,
+    images: ['/images/products/speaker-1.jpg'],
+    category: 'Electronics',
+    stock: 100,
+    variants: [],
+    status: 'active',
+    createdAt: new Date('2024-01-05'),
+    updatedAt: new Date('2024-01-05')
+  }
+];
 
 export default function Home() {
   return (
