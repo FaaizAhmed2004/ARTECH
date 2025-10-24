@@ -14,7 +14,7 @@ const featuredProducts: Product[] = [
     name: 'Premium Wireless Headphones',
     description: 'High-quality wireless headphones with noise cancellation and premium sound quality.',
     price: 299.99,
-    images: ['/images/wirelessheadphones.jpg'],
+    images: ['/images/wirlessheadphones.jpg'],
     category: 'Electronics',
     stock: 50,
     variants: [],
