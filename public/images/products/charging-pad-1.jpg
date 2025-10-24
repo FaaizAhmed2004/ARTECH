@@ -1,0 +1,8 @@
+<svg width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="400" fill="#f3f4f6"/>
+  <circle cx="200" cy="200" r="60" fill="#1f2937"/>
+  <circle cx="200" cy="200" r="45" fill="#374151"/>
+  <circle cx="200" cy="200" r="3" fill="#10b981"/>
+  <path d="M200 180 L200 220 M180 200 L220 200" stroke="#10b981" stroke-width="2"/>
+  <text x="200" y="280" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#6b7280">Wireless Charger</text>
+</svg>
